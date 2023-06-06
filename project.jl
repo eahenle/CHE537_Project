@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.20
+# v0.19.26
 
 using Markdown
 using InteractiveUtils
@@ -19,7 +19,7 @@ begin
 	import IOCapture, Pkg
 	IOCapture.capture(() -> Pkg.activate())
 	using CairoMakie, PlutoUI
-	using DifferentialEquations, ModelingToolkit, SpecialFunctions, Unitful
+	using DifferentialEquations, ModelingToolkit, Unitful
 	TableOfContents(title="Potato Cannon")
 end
 
@@ -308,7 +308,7 @@ md"""
 
 # ╔═╡ 45448769-5dd1-4a3b-b4d4-c7dfeec32ae1
 md"""
-### Potato Position
+### Potato Position & Velocity
 """
 
 # ╔═╡ 224d080e-1f05-41dd-af27-011971be958d
@@ -334,7 +334,7 @@ idx = infinite_barrel_radio == "On" ? eachindex(v_vs_t) : 1:(findfirst(x_vs_t .*
 begin
 	local fig = Figure()
 	local ax1 = Axis(fig[1, 1]; xlabel="t [s]", ylabel="Velocity [m/s]")
-	local t_range = position_solution.t[idx]
+	t_range = position_solution.t[idx]
 	lines!(ax1, t_range, v_vs_t[idx])
 	local ax2 = Axis(fig[1, 2]; xlabel="t [s]", ylabel="Position [m]")
 	lines!(ax2, t_range, x_vs_t[idx])
@@ -352,6 +352,19 @@ md"""
 !!! danger "TODO"
 """
 
+# ╔═╡ 3c582b29-2a4c-4964-ada6-ab2f39f1d5cb
+md"""
+$$U=\frac{1}{2}mv^2$$
+"""
+
+# ╔═╡ 66e2512c-692d-4b7b-8361-174a6d6f0399
+begin
+	local fig = Figure()
+	local ax = Axis(fig[1, 1])
+	lines!(ax, t_range, potato_mass .* v_vs_t .^ 2 |> ustrip)
+	fig
+end
+
 # ╔═╡ b1ceb6cc-518c-4cb5-8a8b-ee8b73974097
 md"""
 ## Propellant Gas Entropy
@@ -361,6 +374,11 @@ md"""
 md"""
 ### 🚩
 !!! danger "TODO"
+"""
+
+# ╔═╡ 6c29f46e-e4db-45f9-bd73-0f74d5124ded
+md"""
+$$S(t)=$$
 """
 
 # ╔═╡ Cell order:
@@ -412,5 +430,8 @@ md"""
 # ╟─f0979869-4507-4329-ba03-95ca5ce55c25
 # ╟─ac07b19f-25df-40cc-80f4-28f0031f6a0b
 # ╠═d3d490c3-5d52-4648-8241-bf8a0425e34d
+# ╠═3c582b29-2a4c-4964-ada6-ab2f39f1d5cb
+# ╠═66e2512c-692d-4b7b-8361-174a6d6f0399
 # ╟─b1ceb6cc-518c-4cb5-8a8b-ee8b73974097
 # ╠═03a9c884-abac-49ba-818e-8da16afac825
+# ╠═6c29f46e-e4db-45f9-bd73-0f74d5124ded
