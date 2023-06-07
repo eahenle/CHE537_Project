@@ -35,6 +35,18 @@ md"""
 	add description and diagram
 """
 
+# ╔═╡ e3c6a272-376b-4c94-a25a-bf003dbf178f
+md"""
+Description of Pneumatic Potato Cannon
+A pneumatic potato cannon is a type of potato launcher that uses compressed air as the driving force to propel potatoes or other projectiles. 
+The construction of a pneumatic potato cannon consists of a chamber, an air source, a valve system, and a barrel. The chamber is typically made from sturdy materials such as PVC pipe or metal and serves as the main body that holds the compressed air. The air source can be a manually operated pump or a pre-charged air tank, which is connected to the chamber.
+A valve system is incorporated to control the release of compressed air. This system ensures that the air is released in a controlled manner, providing a burst of pressure to propel the projectile. Common valve types used in pneumatic potato cannons include ball valves, piston valves, or solenoid valves.
+The barrel is attached to the chamber and provides a pathway for the projectile to travel after being propelled by the compressed air. The length and diameter of the barrel affect the velocity and trajectory of the potato. A longer barrel generally results in higher velocity, while a wider diameter can accommodate larger projectiles.
+Operating a pneumatic potato cannon involves loading a potato or another suitable projectile into the barrel and pressurizing the chamber by pumping air or releasing the stored air from the pre-charged tank. Once the desired pressure is reached, the valve system is activated, allowing the compressed air to rapidly escape, propelling the potato forward.
+Pneumatic potato cannons offer the advantage of precise control and adjustable power. By adjusting the air pressure or modifying the valve system, the operator can fine-tune the cannon's performance for different ranges and projectile sizes. However, it is essential to handle and operate pneumatic cannons safely, following appropriate guidelines and safety precautions.
+
+"""
+
 # ╔═╡ 1d240a7f-3fd1-4bcd-b48b-e59687863455
 md"""
 Burst disc type (pneumatic launcher)
@@ -385,6 +397,7 @@ $$S(t)=$$
 # ╠═edd83d10-fff7-11ed-0b8e-1f7ca13208b3
 # ╟─5c1077b0-9b1d-40fa-b4f8-a274e1ab25d0
 # ╠═731f80ea-bd18-4767-bfd5-031e919ca113
+# ╠═e3c6a272-376b-4c94-a25a-bf003dbf178f
 # ╠═1d240a7f-3fd1-4bcd-b48b-e59687863455
 # ╟─48d0a908-16c4-4622-bdc2-7dd3a029722e
 # ╟─5a8f559c-28ee-418c-be00-becb903287f0
