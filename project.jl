@@ -28,53 +28,75 @@ md"""
 # System
 """
 
-# ╔═╡ 731f80ea-bd18-4767-bfd5-031e919ca113
+# ╔═╡ f0ab32d6-7300-474f-9bbf-c9cdf698549a
 md"""
-### 🚩
-!!! danger "TODO"
-	add description and diagram
+## The Potato Cannon
+
+A potato cannon or "spud gun" is a device that does exactly what the name suggests: accelerates a potato to high velocity, sending it on a ballistic trajectory.
+There are two primary types of potato cannon, differentiated by the source of energy used: fuel-air cannons, and pneumatic launchers.
+
+### Fuel-Air Cannon
+
+An example of the first type, the most powerful potato cannon ever built fires a small plastic projectile (potato is too soft) at a velocity of **``2.7`` times the speed of sound!**
+This is accomplished by the explosive combustion of a propane/air mixture, initially at a pressure of ca. ``3000psi``.
 """
 
-# ╔═╡ e3c6a272-376b-4c94-a25a-bf003dbf178f
-md"""
-Description of Pneumatic Potato Cannon
-A pneumatic potato cannon is a type of potato launcher that uses compressed air as the driving force to propel potatoes or other projectiles. 
-The construction of a pneumatic potato cannon consists of a chamber, an air source, a valve system, and a barrel. The chamber is typically made from sturdy materials such as PVC pipe or metal and serves as the main body that holds the compressed air. The air source can be a manually operated pump or a pre-charged air tank, which is connected to the chamber.
-A valve system is incorporated to control the release of compressed air. This system ensures that the air is released in a controlled manner, providing a burst of pressure to propel the projectile. Common valve types used in pneumatic potato cannons include ball valves, piston valves, or solenoid valves.
-The barrel is attached to the chamber and provides a pathway for the projectile to travel after being propelled by the compressed air. The length and diameter of the barrel affect the velocity and trajectory of the potato. A longer barrel generally results in higher velocity, while a wider diameter can accommodate larger projectiles.
-Operating a pneumatic potato cannon involves loading a potato or another suitable projectile into the barrel and pressurizing the chamber by pumping air or releasing the stored air from the pre-charged tank. Once the desired pressure is reached, the valve system is activated, allowing the compressed air to rapidly escape, propelling the potato forward.
-Pneumatic potato cannons offer the advantage of precise control and adjustable power. By adjusting the air pressure or modifying the valve system, the operator can fine-tune the cannon's performance for different ranges and projectile sizes. However, it is essential to handle and operate pneumatic cannons safely, following appropriate guidelines and safety precautions.
+# ╔═╡ 8042a41f-9c48-4fef-bb88-6a40207861fe
+Resource("https://raw.githubusercontent.com/eahenle/CHE537_Project/main/img/example1.png")
 
+# ╔═╡ 7b373d4a-9765-4457-aeb5-468e67269421
+Resource("https://raw.githubusercontent.com/eahenle/CHE537_Project/main/img/example2.png")
+
+# ╔═╡ f0a51973-bf58-429a-b18b-09a8be1edff2
+md"""
+### Pneumatic Launcher
+"""
+
+# ╔═╡ 4416a2e1-5530-43d2-ba86-1ecccc7dd387
+md"""
+The pneumatic launcher uses compressed air as the driving force to propel potatoes or other projectiles. 
+The construction of a pneumatic potato cannon consists of a chamber, an air source, a valve system, and a barrel. 
+The chamber is typically made from sturdy materials such as PVC pipe or metal and serves as the main body that holds the compressed air. 
+The air source can be a manually operated pump or a pre-charged air tank, which is connected to the chamber.
+A valve system is incorporated to control the release of compressed air. 
+Common valve types used in pneumatic potato cannons include ball valves, piston valves, or solenoid valves; it is also possible to use a chamber with a burst disc.
+The barrel is attached to the chamber and provides a pathway for the projectile to travel while being propelled by the compressed air. 
+The length and diameter of the barrel affect the velocity and trajectory of the potato. 
+A longer barrel generally results in higher velocity, while a wider diameter can accommodate larger projectiles.
+
+Operating a pneumatic potato cannon involves loading a potato or another suitable projectile into the barrel and pressurizing the chamber by pumping air or releasing the stored air from the pre-charged tank. 
+Once the desired pressure is reached, the valve system is activated, allowing the compressed air to rapidly escape, propelling the potato forward.
+"""
+
+# ╔═╡ 9ee5635f-31b0-4152-95e9-909950c57bbd
+Resource("https://raw.githubusercontent.com/eahenle/CHE537_Project/main/img/diagram.png")
+
+# ╔═╡ 48d0a908-16c4-4622-bdc2-7dd3a029722e
+md"""
+# Model
 """
 
 # ╔═╡ 1d240a7f-3fd1-4bcd-b48b-e59687863455
 md"""
-Burst disc type (pneumatic launcher)
-
-Assumptions:
+To model our pneumatic launcher, we will make the following key assumptions:
 
 - no barrel friction
 - no air leakage
 - potato will remain intact
 - no heat transfer to/from barrel or potato
 
-Free variables:
+The free variables in the model are:
 
 - potato mass
 - initial chamber pressure
+- ambient pressure (constant)
 - cannon bore diameter/length
 
-Display calculations:
+Our calculated quantities are:
 
+- Potato position and velocity
 - Internal energy of potato
-- Work done by potato cannon
 - Entropy change by firing the cannon
-- Gas pressure/temperature
-"""
-
-# ╔═╡ 48d0a908-16c4-4622-bdc2-7dd3a029722e
-md"""
-# Model
 """
 
 # ╔═╡ 5a8f559c-28ee-418c-be00-becb903287f0
@@ -162,10 +184,11 @@ md"""
 ## Potato Internal Energy
 """
 
-# ╔═╡ cdcfcc63-280e-4184-8e0f-e6269de2fa80
+# ╔═╡ 004f09b4-6ceb-4224-a35a-2bc68b99e84d
 md"""
-### 🚩
-!!! danger "TODO"
+Because the potato's temperature is constant, and the model assumes a level barrel (negating the effect of gravity), the change in internal energy of the potato is simply its kinetic energy:
+
+$$U=\frac{1}{2}mv^2$$
 """
 
 # ╔═╡ 10345319-56e5-43a1-81bf-73d5aac574f1
@@ -173,10 +196,15 @@ md"""
 ## Propellant Gas Entropy
 """
 
-# ╔═╡ 5ecc8fba-d8b0-4643-b810-00acde871348
+# ╔═╡ 79f0d964-e9a2-4da4-b880-982b73a6113e
 md"""
-### 🚩
-!!! danger "TODO"
+$$\Delta S=C_V\ln\left( \frac{T_2}{T_1} \right)+R\ln\left( \frac{V_2}{V_1} \right)$$
+
+$$C_V\Delta T=P_0(\Delta V)$$
+
+$$T_2=\frac{P_0Ax}{C_V}+T_1$$
+
+$$\Delta S=C_V\ln\left( \frac{P_0Ax}{C_VT_1}+1 \right)+R\ln\left( 1+\frac{Ax}{V_T} \right)$$
 """
 
 # ╔═╡ a0be8895-6f11-4eed-80c7-f1ab1faa6516
@@ -358,22 +386,14 @@ md"""
 ## Potato Internal Energy
 """
 
-# ╔═╡ d3d490c3-5d52-4648-8241-bf8a0425e34d
-md"""
-### 🚩
-!!! danger "TODO"
-"""
-
-# ╔═╡ 3c582b29-2a4c-4964-ada6-ab2f39f1d5cb
-md"""
-$$U=\frac{1}{2}mv^2$$
-"""
+# ╔═╡ 4e0e715f-fab2-44ed-9164-1f6e49ed0065
+U(v) = potato_mass * v ^ 2 / 2;
 
 # ╔═╡ 66e2512c-692d-4b7b-8361-174a6d6f0399
 begin
 	local fig = Figure()
-	local ax = Axis(fig[1, 1])
-	lines!(ax, t_range, potato_mass .* v_vs_t .^ 2 |> ustrip)
+	local ax = Axis(fig[1, 1]; xlabel="t [s]", ylabel="U [J]")
+	lines!(ax, t_range, U.(v_vs_t[idx]) |> ustrip)
 	fig
 end
 
@@ -384,22 +404,46 @@ md"""
 
 # ╔═╡ 03a9c884-abac-49ba-818e-8da16afac825
 md"""
-### 🚩
-!!! danger "TODO"
+Additional required constants:
 """
 
-# ╔═╡ 6c29f46e-e4db-45f9-bd73-0f74d5124ded
-md"""
-$$S(t)=$$
-"""
+# ╔═╡ 2c8f2e26-e058-417c-850e-c298afe47b4f
+begin
+	Cᵥ = 0.718u"kJ/kg/K" |> upreferred |> ustrip
+	T₀ = 300u"K" |> ustrip
+	R = 8.314u"kJ/mol/K" |> upreferred |> ustrip
+end;
+
+# ╔═╡ f1ec8ace-3dd5-400a-aa10-a509b43776a9
+ΔS(x) = 
+	Cᵥ * log(
+		ustrip(upreferred(
+			tank_initial_pressure * x * π * cannon_diameter ^ 2 / (4 * Cᵥ * T₀)
+		)) + 1
+	) +
+	R * log(
+		1 + ustrip(upreferred(x * π * cannon_diameter ^ 2 / (4 * tank_volume)))
+	);
+
+# ╔═╡ 4764a4b6-d716-4120-b9cc-50ad2606eb21
+begin
+	local fig = Figure()
+	local ax = Axis(fig[1, 1]; xlabel="t [s]", ylabel="ΔS [J/K]")
+	lines!(ax, t_range, ΔS.(x_vs_t[idx]))
+	fig
+end
 
 # ╔═╡ Cell order:
 # ╠═edd83d10-fff7-11ed-0b8e-1f7ca13208b3
 # ╟─5c1077b0-9b1d-40fa-b4f8-a274e1ab25d0
-# ╠═731f80ea-bd18-4767-bfd5-031e919ca113
-# ╠═e3c6a272-376b-4c94-a25a-bf003dbf178f
-# ╠═1d240a7f-3fd1-4bcd-b48b-e59687863455
+# ╟─f0ab32d6-7300-474f-9bbf-c9cdf698549a
+# ╟─8042a41f-9c48-4fef-bb88-6a40207861fe
+# ╟─7b373d4a-9765-4457-aeb5-468e67269421
+# ╟─f0a51973-bf58-429a-b18b-09a8be1edff2
+# ╟─4416a2e1-5530-43d2-ba86-1ecccc7dd387
+# ╟─9ee5635f-31b0-4152-95e9-909950c57bbd
 # ╟─48d0a908-16c4-4622-bdc2-7dd3a029722e
+# ╟─1d240a7f-3fd1-4bcd-b48b-e59687863455
 # ╟─5a8f559c-28ee-418c-be00-becb903287f0
 # ╟─af702842-de70-4206-8390-425538c28d27
 # ╟─ff371de9-f525-4eb1-a473-678dbbf5f8c4
@@ -411,9 +455,9 @@ $$S(t)=$$
 # ╟─14b02858-794d-4f0e-bd02-324d19bf38b7
 # ╠═e695a792-ae52-42d6-9df2-250e611ab24c
 # ╟─c7d9b116-e03a-40b5-a595-a9dd2c419ab1
-# ╠═cdcfcc63-280e-4184-8e0f-e6269de2fa80
+# ╟─004f09b4-6ceb-4224-a35a-2bc68b99e84d
 # ╟─10345319-56e5-43a1-81bf-73d5aac574f1
-# ╠═5ecc8fba-d8b0-4643-b810-00acde871348
+# ╟─79f0d964-e9a2-4da4-b880-982b73a6113e
 # ╟─a0be8895-6f11-4eed-80c7-f1ab1faa6516
 # ╟─95cb499f-cf7f-483e-9db7-fd243e7cacf6
 # ╟─89c27f9f-754b-478f-a566-287d2601a5fe
@@ -434,7 +478,7 @@ $$S(t)=$$
 # ╟─d7019dfb-39df-4609-911c-d7ead702ac18
 # ╟─b9e92d4c-a9a9-483a-bea6-e4b16716d881
 # ╟─b341aa28-a758-428d-a1a3-b86153565317
-# ╟─db400f61-b778-4bdb-a4e3-a868838a7f90
+# ╠═db400f61-b778-4bdb-a4e3-a868838a7f90
 # ╟─0f266e62-481e-4b80-874e-9aaf2ade7d6d
 # ╟─da4b4638-c10e-4eaf-828c-f54cd7cfeef6
 # ╟─2c6b6994-d670-43fc-9237-f3f87c0f8027
@@ -442,9 +486,10 @@ $$S(t)=$$
 # ╠═224d080e-1f05-41dd-af27-011971be958d
 # ╟─f0979869-4507-4329-ba03-95ca5ce55c25
 # ╟─ac07b19f-25df-40cc-80f4-28f0031f6a0b
-# ╠═d3d490c3-5d52-4648-8241-bf8a0425e34d
-# ╠═3c582b29-2a4c-4964-ada6-ab2f39f1d5cb
-# ╠═66e2512c-692d-4b7b-8361-174a6d6f0399
+# ╠═4e0e715f-fab2-44ed-9164-1f6e49ed0065
+# ╟─66e2512c-692d-4b7b-8361-174a6d6f0399
 # ╟─b1ceb6cc-518c-4cb5-8a8b-ee8b73974097
-# ╠═03a9c884-abac-49ba-818e-8da16afac825
-# ╠═6c29f46e-e4db-45f9-bd73-0f74d5124ded
+# ╟─03a9c884-abac-49ba-818e-8da16afac825
+# ╠═2c8f2e26-e058-417c-850e-c298afe47b4f
+# ╠═f1ec8ace-3dd5-400a-aa10-a509b43776a9
+# ╟─4764a4b6-d716-4120-b9cc-50ad2606eb21
